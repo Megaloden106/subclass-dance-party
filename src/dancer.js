@@ -1,10 +1,8 @@
 // Creates and returns a new dancer object that can step
 var Dancer = function(top, left, timeBetweenSteps) {
-  // this = Object.create(BlinkyDancer.prototype)
   this.top = top;
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
-  // this.oldStep = this.step;
 
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
