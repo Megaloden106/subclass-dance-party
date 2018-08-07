@@ -15,5 +15,5 @@ ChrisMartinDancer.prototype.constructor = ChrisMartinDancer;
 ChrisMartinDancer.prototype.step = function() {
   // this.oldStep();
   Dancer.prototype.step.call(this);
-  this.$node.toggle();
+  // this.$node.toggle();
 };

@@ -15,5 +15,5 @@ HipHopDancer.prototype.constructor = HipHopDancer;
 HipHopDancer.prototype.step = function() {
   // this.oldStep();
   Dancer.prototype.step.call(this);
-  this.$node.toggle();
+  // this.$node.toggle();
 };
