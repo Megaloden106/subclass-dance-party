@@ -43,5 +43,21 @@ $(document).ready(function() {
       window.dancers[i].setPosition(500, pos);
     }
   });
+
+  $('.danceOffButton').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      var dancer = window.dancers[i].$node[0].className;
+      var height = $('body').height() * Math.random() / 5;
+      var width = $('body').width() * Math.random() / 5;
+      if (dancer === 'hipHopDancer') {
+        window.dancers[i].setPosition(height, width + 650);
+      } else if (dancer === 'chrisMartinDancer') {
+        window.dancers[i].setPosition(height + 500, width);
+      } else if (dancer === 'dancer') {
+        window.dancers[i].setPosition(height + 500, width + 1250);
+      }
+    }
+  });   
+
 });
 
