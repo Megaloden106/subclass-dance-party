@@ -9,21 +9,21 @@ body{
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: white;
 }
 .title, 
 .addDancerButton, 
 .lineupButton, 
 .danceOffButton{
-  padding:5px 12px;
-  float:right;
+  padding:5px 10% 5px 0;
+  font-family: 'arial';
+  text-decoration: none;
+  float: right;
 }
 .topbar{
   height:32px;
-  background-color: #555;
-}
-.title{
-  background-color: #777;
+  background-color: black;
+  color: white;
 }
 span{
   -webkit-transition: -webkit-transform .8s ease-in-out;

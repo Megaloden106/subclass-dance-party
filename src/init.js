@@ -27,36 +27,67 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    window.dancers.push(dancer);
+    dancers.push(dancer);
     $('body').append(dancer.$node);
+  });
+
+  var currMousePos = { x: -1, y: -1 };
+  $('body').mousemove(function(event) {
+    currMousePos.x = event.pageX;
+    currMousePos.y = event.pageY;
+
+    // var msg = "Handler for .mousemove() called at ";
+    // msg += event.pageX + ", " + event.pageY;
+    // console.log(msg)
+  });
+
+  $('body').mousedown(function() {
+    interval = setInterval(function() {
+      if (currMousePos.y > 40) { //dancer near mouse
+        $('span').animate({
+          top: currMousePos.y,
+          left: currMousePos.x,
+        }, 'slow');
+      }
+    }, 500);
+  });
+
+  $('body').mouseup(function() {
+    clearInterval(interval);
   });
 
   // add a button for lineup
   $('.lineupButton').on('click', function(event) {
-    for (var i = 0; i < window.dancers.length; i++) {
+    for (var i = 0; i < dancers.length; i++) {
       let pos;
       if (i % 2 === 0) {
         pos = ($('body').width() / 2) + (50 * i);
       } else {
         pos = ($('body').width() / 2) + (-50 * i);
       }
-      window.dancers[i].setPosition(500, pos);
+      dancers[i].setPosition(500, pos);
+
     }
   });
 
   $('.danceOffButton').on('click', function(event) {
-    for (var i = 0; i < window.dancers.length; i++) {
-      var dancer = window.dancers[i].$node[0].className;
+    for (var i = 0; i < dancers.length; i++) {
+      var dancer = dancers[i].$node[0].className;
       var height = $('body').height() * Math.random() / 5;
       var width = $('body').width() * Math.random() / 5;
       if (dancer === 'hipHopDancer') {
-        window.dancers[i].setPosition(height, width + 650);
+        dancers[i].setPosition(height, width + 650);
       } else if (dancer === 'chrisMartinDancer') {
-        window.dancers[i].setPosition(height + 500, width);
+        dancers[i].setPosition(height + 500, width);
       } else if (dancer === 'dancer') {
-        window.dancers[i].setPosition(height + 500, width + 1250);
+        dancers[i].setPosition(height + 500, width + 1250);
       }
     }
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'][Math.floor((Math.random() * 16))];
+    }
+    $('.danceOffButton').css('color', color);
   });   
 
 });
